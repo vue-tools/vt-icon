@@ -34,6 +34,11 @@
                 return `0 0 ${this.icon.width} ${this.icon.height}`
             }
         },
+        methods: {
+            emit() {
+                this.$emit('click')
+            }
+        },
         add(data) {
             for(let key of Object.keys(data)) {
                 icons[key] = data[key]
