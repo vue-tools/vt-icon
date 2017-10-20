@@ -5,7 +5,7 @@ module.exports = {
     webpack: {
         resolve: {
             alias: {
-                'vt-icon': path.join(__dirname, 'src')
+                'vt-icon': path.join(__dirname, 'dist')
             }
         }
     },

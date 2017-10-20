@@ -20,18 +20,33 @@ export default {
 }
 ```
 
+## Warning
+
+Icon 组件默认没有图标数据，使用时需使用 `Icon.add` 方法导入图标数据，所有的图标都是 svg 格式，导入时需使用 svg 的 `width`, `height`, `d` 属性。
+
 ## Usage
 
 ```example
+<style>
+    .icon {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+    }
+</style>
 <template>
-    <Icon name="phone"></Icon>
-    <Icon name="lock"></Icon>
+    <div class="icon">
+        <Icon name="phone"></Icon>
+    </div>
+    <div class="icon">
+        <Icon name="lock"></Icon>
+    </div>
 </template>
 
 <script>
     import Icon from 'vt-icon'
 
-    Icon.add('', {
+    Icon.add({
         phone: {
             width: 15,
             height: 20,
@@ -50,7 +65,7 @@ export default {
 
     export default {        
         components: {
-            Icon
+             Icon
         }
     }
 </script>
@@ -60,18 +75,12 @@ export default {
 
 ```interface
 props:
-  visible:
-    type: Boolean
+  name:
+    type: String
     default: ''
-    description: 组件显示或隐藏，必填
-slots:
-  title:
-    description: 组件的标题
-  text:
-    description: 组件的内容
-  button:
-    description: 组件的确认按钮，默认: ``确定``
-events:
-  hide:
-    description: 组件隐藏之后的回调事件
+    description: 图标名称
+  flip:
+    type: String
+    default: ''
+    description: 旋转图标，取值 `horizontal` 或 `vertical`
 ```
